@@ -39,4 +39,4 @@ As a quick PoC, the “`issues.db`” database could be checked for the presence
 
 * When a build is run, the shell script will kick in and run needle against the target app:
 [![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png "Run.")](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png)
-[![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png "Run.")(http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png)
+[![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png "Run.")](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png)
