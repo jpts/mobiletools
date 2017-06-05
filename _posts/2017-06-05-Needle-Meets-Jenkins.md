@@ -22,37 +22,22 @@ These 2 features made it possible to create the PoC below, where needle has been
 
 ### PoC
 
-1. Connect a Jailbroken iDevice to the machine running Jenkins (either via USB or WiFi) and start the needle agent (see the [Quick Start Guide](https://github.com/mwrlabs/needle/wiki/Quick-Start-Guide) for details)
-2. Create a new Jenkins project
+* Connect a Jailbroken iDevice to the machine running Jenkins (either via USB or WiFi) and start the needle agent (see the [Quick Start Guide](https://github.com/mwrlabs/needle/wiki/Quick-Start-Guide) for details)
 
+* Create a new Jenkins project:
 ![Image: Jenkins Project.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_1.png "Jenkins Project.")
 
-3. Add an "_Execute Shell_" step under the Build process
-
+* Add an _"Execute Shell"_ step under the Build process:
 ![Image: Execute Shell.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_2.png "Execute Shell.")
 
-- First, run needle in non-interactive mode, specifying the output folder, the target app, and all the modules you want to have executed (see [Non-Interactive mode on the Wiki](https://github.com/mwrlabs/needle/wiki/Non-interactive-Mode) for a full list of options):
-    ```
-    "python ~/needle/needle/needle-cli.py        
-    	-g OUTPUT_FOLDER=/tmp/needle/        
-    	-g SKIP_OUTPUT_FOLDER_CHECK=True        
-    	-g APP=uk.co.bbc.newsuk        
-    	-m binary/info/metadata        
-    	-m binary/info/compilation_checks"
-    ```
-- As a quick PoC, the “`issues.db`” database could be checked for the presence of vulnerabilities: if so, the build could be marked as a fail. Note that a more complex logic could be used to determine if the build should be failed.
-	```
-	issues=$(sqlite3 -batch /tmp/needle/issues.db "select * from issues")
-	if [ -n "$issues" ]; then
-	    echo "ISSUES IDENTIFIED";
-	    # Fail the build
-	    exit 1;
-	else
-	    echo "No Issues Identified";
-	fi
-	```
+First, run needle in non-interactive mode, specifying the output folder, the target app, and all the modules you want to have executed (see [Non-Interactive mode on the Wiki](https://github.com/mwrlabs/needle/wiki/Non-interactive-Mode) for a full list of options):
+{% gist 1294d905d17a62409f2d7500cda536bc needle_ci_1.sh %}
 
-4. When a build is run, the shell script will kick in and run needle against the target app:
+As a quick PoC, the “`issues.db`” database could be checked for the presence of vulnerabilities: if so, the build could be marked as a fail. Note that a more complex logic could be used to determine if the build should be failed.
+{% gist 1294d905d17a62409f2d7500cda536bc needle_ci_2.sh %}
 
+
+* When a build is run, the shell script will kick in and run needle against the target app:
 ![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png "Run.")
 ![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png "Run.")
+
