@@ -25,10 +25,10 @@ These 2 features made it possible to create the PoC below, where needle has been
 * Connect a Jailbroken iDevice to the machine running Jenkins (either via USB or WiFi) and start the needle agent (see the [Quick Start Guide](https://github.com/mwrlabs/needle/wiki/Quick-Start-Guide) for details)
 
 * Create a new Jenkins project:
-![Image: Jenkins Project.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_1.png "Jenkins Project.")
+[![Image: Jenkins Project.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_1.png "Jenkins Project.")]((http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_1.png)
 
 * Add an _"Execute Shell"_ step under the Build process:
-![Image: Execute Shell.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_2.png "Execute Shell.")
+[![Image: Execute Shell.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_2.png "Execute Shell.")](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_2.png)
 
 First, run needle in non-interactive mode, specifying the output folder, the target app, and all the modules you want to have executed (see [Non-Interactive mode on the Wiki](https://github.com/mwrlabs/needle/wiki/Non-interactive-Mode) for a full list of options):
 {% gist 1294d905d17a62409f2d7500cda536bc needle_ci_1.sh %}
@@ -38,6 +38,5 @@ As a quick PoC, the “`issues.db`” database could be checked for the presence
 
 
 * When a build is run, the shell script will kick in and run needle against the target app:
-![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png "Run.")
-![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png "Run.")
-
+[![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png "Run.")](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_3.png)
+[![Image: Run.](http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png "Run.")(http://mobiletools.mwrinfosecurity.com/images/needle_ci_post/ci_4.png)
